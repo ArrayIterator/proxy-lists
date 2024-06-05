@@ -105,11 +105,13 @@ const put_proxies = () => {
         readline.clearLine(process.stdout, 0);
         readline.cursorTo(process.stdout, 0);
         fs.writeFileSync(file,'');
-        for (let proxy of proxies[type]) {
-            fs.writeFileSync(file, proxy + "\n", { flag: 'a' });
+        while (proxies[type].length > 0) {
+            let proxy = proxies[type].shift();
             if (type !== 'unknown') {
                 proxy = `${type}://${proxy}`;
             }
+            let newLine = proxies[type].length === 0 ? "" : "\n";
+            fs.writeFileSync(file, proxy + newLine, { flag: 'a' });
             if (all.includes(proxy)) {
                 continue;
             }
@@ -119,15 +121,16 @@ const put_proxies = () => {
     }
     process.stdout.write(`Writing [${all.length}] proxies to all.txt\r`);
     fs.writeFileSync(PROXY_DIRECTORY + '/all.txt','');
-    let count = 0;
-    for (let proxy of all) {
-        count++;
-        fs.writeFileSync(PROXY_DIRECTORY + '/all.txt', proxy + "\n", { flag: 'a' });
+    let total = all.length;
+    while (all.length > 0) {
+        let proxy = all.shift();
+        let newLine = all.length === 0 ? "" : "\n";
+        fs.writeFileSync(PROXY_DIRECTORY + '/all.txt', proxy + newLine, { flag: 'a' });
     }
-    fs.writeFileSync(README_FILE, README_TEMPLATE.replace('{update}', new Date().toISOString()).replace('{total}', count.toString()));
+    fs.writeFileSync(README_FILE, README_TEMPLATE.replace('{update}', new Date().toISOString()).replace('{total}', total.toString()));
     readline.clearLine(process.stdout, 0);
     readline.cursorTo(process.stdout, 0);
-    console.log(`Success getting ${count} proxies`);
+    console.log(`Success getting ${total} proxies`);
     all = null;
     process.exit(0);
 }
