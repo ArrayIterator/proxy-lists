@@ -22,7 +22,7 @@ Last update \`{update}\` with total \`{total}\` proxies.
 ALL (protocol://ip:port)
 
 \`\`\`
-https://raw.githubusercontent.com/ArrayIterator/proxy-lists/main/proxies/socks5.txt
+https://raw.githubusercontent.com/ArrayIterator/proxy-lists/main/proxies/all.txt
 \`\`\`
 
 SOCKS5
