@@ -13,6 +13,8 @@ const README_TEMPLATE = `
 
 Proxy list updated every 12 hours. You can use the following links to get the latest proxy list.
 
+[![.github/workflows/periodic.yaml](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml/badge.svg?branch=main)](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml)
+
 ## LAST UPDATE
 
 Last update \`{update}\` with total \`{total}\` proxies.

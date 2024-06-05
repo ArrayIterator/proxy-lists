@@ -3,6 +3,8 @@
 
 Proxy list updated every 6 hours. You can use the following links to get the latest proxy list.
 
+[![.github/workflows/periodic.yaml](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml/badge.svg?branch=main)](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml)
+
 ## LAST UPDATE
 
 
