@@ -1,14 +1,15 @@
 
-## PROXY LIST UPDATE EVERY 6 HOURS
+## PROXY LIST UPDATE EVERY 12 HOURS
 
-Proxy list updated every 6 hours. You can use the following links to get the latest proxy list.
+Proxy list updated every 12 hours. You can use the following links to get the latest proxy list.
 
 [![.github/workflows/periodic.yaml](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml/badge.svg?branch=main)](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml)
 
 ## LAST UPDATE
 
+Last update `2024-06-05T11:04:43.341Z` with total `76100` proxies.
 
-ALL `(protocol://ip:port)`
+ALL (protocol://ip:port)
 
 ```
 https://raw.githubusercontent.com/ArrayIterator/proxy-lists/main/proxies/socks5.txt
