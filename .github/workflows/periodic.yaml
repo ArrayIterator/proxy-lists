@@ -1,0 +1,32 @@
+# every 6 hours 0 */6 * * *
+# run periodic with execute npm run periodic
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/6 * * * *'
+jobs:
+  periodic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Run periodic
+        run: npm run periodic
+      - name: Push changes
+        run: |
+          git config --global user.name "ArrayIterator"
+          git config --global user.email "me@arrayiterator.com"
+          git add --all
+          git commit -m "Update readme date" README.md
+          git commit -am "Periodic : `date +'%Y-%m-%d %H:%M:%S'`"
+          git push origin main --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          username: github-actions

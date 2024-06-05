@@ -1,0 +1,15 @@
+{
+  "name": "proxy-list-update",
+  "version": "1.0.0",
+  "description": "Update proxy list every 6 hour",
+  "main": "worker.js",
+  "scripts": {
+    "periodic": "node worker.js"
+  },
+  "type": "module",
+  "config": {
+    "engines": {
+      "node": ">=20.0.0"
+    }
+  }
+}
