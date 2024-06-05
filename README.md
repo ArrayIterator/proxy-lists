@@ -7,12 +7,12 @@ Proxy list updated every 12 hours. You can use the following links to get the la
 
 ## LAST UPDATE
 
-Last update `2024-06-05T11:04:43.341Z` with total `76100` proxies.
+Last update `2024-06-05T11:10:45.034Z` with total `75202` proxies.
 
 ALL (protocol://ip:port)
 
 ```
-https://raw.githubusercontent.com/ArrayIterator/proxy-lists/main/proxies/socks5.txt
+https://raw.githubusercontent.com/ArrayIterator/proxy-lists/main/proxies/all.txt
 ```
 
 SOCKS5
