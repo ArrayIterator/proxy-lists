@@ -2,7 +2,35 @@ import path from "node:path";
 import fs from "node:fs";
 import parser from "./parser.js";
 import readline from 'readline';
-
+const USER_AGENTS = [
+    "Mozilla/5.0 (Linux; Android 14.0; Mobile) Presto/521.43 Version/514.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/551.32 Safari/537.36",
+    "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0",
+    "Mozilla/5.0 (Linux; Android 12.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/526.0 Mobile Safari/537.36 Edg/526.0",
+    "Mozilla/5.0 (Android 12.0; Mobile; rv:107.0) Gecko/20100101 Firefox/107.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/552.0 Safari/537.36",
+    "Mozilla/5.0 (Linux; Android 14.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/802.0 Mobile Safari/537.36 UCBrowser/802.0",
+    "Mozilla/5.0 (Linux; Android 8.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/686.0 Mobile Safari/537.36 UCBrowser/686.0",
+    "Mozilla/5.0 (X11; Arch; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0",
+    "Mozilla/5.0 (Linux; Android 13.0; Mobile) Presto/559.95 Version/507.0",
+    "Mozilla/5.0 (Linux; Android 12.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/776.0 Mobile Safari/537.36 YaBrowser/776.0",
+    "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/519.72 Safari/537.36",
+    "Mozilla/5.0 (Linux; Android 10.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/556.0 Mobile Safari/537.36 YaBrowser/556.0",
+    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/782.0 Safari/537.36 YaBrowser/782.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0) Chrome/524.71 Version/526.0",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/745.0 Mobile Safari/537.36 AlohaBrowser/745.0",
+    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/564.2 Safari/537.36 Brave/564.2",
+    "Mozilla/5.0 (Linux; Android 15.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/517.0 Mobile Safari/537.36 Edg/517.0",
+    "Mozilla/5.0 (Linux; Android 10.0; Mobile) Presto/555.64 Version/537.0",
+    "Mozilla/5.0 (X11; Arch; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/867.0 Safari/537.36 Tor/867.0",
+    "Mozilla/5.0 (X11; Arch; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/522.0 Safari/537.36 Tor/522.0",
+    "Mozilla/5.0 (Linux; Android 13.0; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/582.0 Mobile Safari/537.36 UCBrowser/582.0",
+    "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Version/592.8.42 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/561.69 Safari/537.36",
+    "Mozilla/5.0 (X11; Arch; Linux x86_64) Chrome/547.96 Version/527.0",
+    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/539.5 Safari/537.36 Vivaldi/539.5",
+    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) Chrome/532.46 Version/525.0"
+];
 const ROOT = import.meta.dirname;
 const MAX_CONCURRENT_REQUESTS = 15; // 15 concurrent requests
 const URI_TXT_FILE = path.resolve(ROOT, 'data/uri.txt');
@@ -128,7 +156,7 @@ const get_proxy = () => {
             {
                 signal: abort.signal,
                 headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+                    'User-Agent': USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)],
                     'Referer': 'https://www.github.com',
                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                     'Accept-Language': 'en-US,en;q=0.5',
