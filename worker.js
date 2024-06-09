@@ -32,7 +32,8 @@ const USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 6.3; Win64; x64) Chrome/532.46 Version/525.0"
 ];
 const ROOT = import.meta.dirname;
-const MAX_CONCURRENT_REQUESTS = 15; // 15 concurrent requests
+const TIMEOUT = 20000;
+const MAX_CONCURRENT_REQUESTS = 10; // 15 concurrent requests
 const URI_TXT_FILE = path.resolve(ROOT, 'data/uri.txt');
 const PROXY_DIRECTORY = path.resolve(ROOT, 'proxies')
 const README_FILE = path.resolve(ROOT, 'README.md');
@@ -153,7 +154,7 @@ const get_proxy = () => {
         let abort = new AbortController();
         let signal_timeout = setTimeout(() => {
             abort.abort();
-        }, 15000); // set timeout to 10 seconds
+        }, TIMEOUT); // set timeout to TIMEOUT miliseconds
         fetch(
             url,
             {
