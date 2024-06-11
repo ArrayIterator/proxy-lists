@@ -6,20 +6,20 @@ const guess_type = (url = null) => {
     if (!url || typeof url !== 'string') {
         return null;
     }
-    if (url.match(/socks5/i)) {
+    if (url.match(/socks5|=socks5(&|$)/i)) {
         return 'socks5';
-    } else if (url.match(/socks4/i)) {
+    } else if (url.match(/socks4|=socks4(&|$)/i)) {
         return 'socks4';
-    } else if (url.match(/http[_.\-&]/i)) {
+    } else if (url.match(/http[_.\-&]|=http(&|$)/i)) {
         return 'http';
-    } else if (url.match(/https[_.\-&]/i)) {
+    } else if (url.match(/https[_.\-&]|=http(&|$)/i)) {
         return 'https';
     }
     return null;
 }
 
 const parser = {
-    html: (text) => {
+    html: (text, url = null) => {
         if (typeof text !== 'string') {
             return [];
         }
@@ -35,6 +35,7 @@ const parser = {
         // find the table
         let tables = document.querySelectorAll('table');
         let result = [];
+        let the_type = guess_type(url);
         if (tables.length > 0) {
             for (let table of tables) {
                 // find the tr-tag
@@ -111,6 +112,7 @@ const parser = {
                     if (IPv4_REGEX.test(ip) !== true) {
                         return;
                     }
+                    type = type || the_type;
                     let value = type ? `${type}://${ip}:${port}` : `${ip}:${port}`;
                     if (!result.includes(value)) {
                         result.push(value);
