@@ -59,7 +59,11 @@ const parser = {
                             proxy = _td;
                             continue;
                         }
-                        if (proxy && _td.match(/(socks4|socks5|http|https)/i)) {
+                        if (!type && _td.match(/^(socks4|socks5|http|https)$/i)) {
+                            type = _td.toLowerCase();
+                            continue;
+                        }
+                        if (proxy && !type && _td.match(/^(socks4|socks5|http|https)$/i)) {
                             type = _td.toLowerCase();
                             break;
                         }
@@ -82,7 +86,11 @@ const parser = {
                                 proxy = `${ip}:${port}`;
                                 continue;
                             }
-                            if (proxy && _td.match(/(socks4|socks5|http|https)/i)) {
+                            if (!type && _td.match(/^(socks4|socks5|http|https)$/i)) {
+                                type = _td.toLowerCase();
+                                continue;
+                            }
+                            if (proxy && !type && _td.match(/^(socks4|socks5|http|https)$/i)) {
                                 type = _td.toLowerCase();
                                 break;
                             }
