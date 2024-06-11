@@ -6,13 +6,13 @@ const guess_type = (url = null) => {
     if (!url || typeof url !== 'string') {
         return null;
     }
-    if (url.match(/socks5|=socks5(&|$)/i)) {
+    if (url.match(/socks5|[=\/]socks5([\/&]|$)/i)) {
         return 'socks5';
-    } else if (url.match(/socks4|=socks4(&|$)/i)) {
+    } else if (url.match(/socks4|[=\/]socks4([\/&]|$)/i)) {
         return 'socks4';
-    } else if (url.match(/http[_.\-&]|=http(&|$)/i)) {
+    } else if (url.match(/http[_.\-&]|[=\/]http([\/&]|$)/i)) {
         return 'http';
-    } else if (url.match(/https[_.\-&]|=http(&|$)/i)) {
+    } else if (url.match(/https[_.\-&]|[=\/]http([\/&]|$)/i)) {
         return 'https';
     }
     return null;
