@@ -61,6 +61,31 @@ const parser = {
                         }
                         if (proxy && _td.match(/(socks4|socks5|http|https)/i)) {
                             type = _td.toLowerCase();
+                            break;
+                        }
+                    }
+                    // next check without protocol
+                    if (!proxy) {
+                        let ip = null;
+                        let port = null;
+                        for (let _td of td) {
+                            if (proxy && type) {
+                                break;
+                            }
+                            _td = _td.textContent.trim();
+                            if (!ip && _td.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)) {
+                                ip = _td;
+                                continue;
+                            }
+                            if (ip && !port && _td.match(/^\d+$/) && parseInt(_td) > 0 && parseInt(_td) < 65535) {
+                                port = _td;
+                                proxy = `${ip}:${port}`;
+                                continue;
+                            }
+                            if (proxy && _td.match(/(socks4|socks5|http|https)/i)) {
+                                type = _td.toLowerCase();
+                                break;
+                            }
                         }
                     }
                     if (!proxy) {
