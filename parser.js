@@ -235,6 +235,13 @@ const parser = {
                         protocols.push(item.protocol);
                     }
                 }
+            } else if (item.hasOwnProperty('type')) {
+                if (typeof item.type === 'string') {
+                    item.type = item.type.toLowerCase();
+                    if (allowedTypes.includes(item.type)) {
+                        protocols.push(item.protocol);
+                    }
+                }
             }
             if (protocols.length < 1) {
                 if (item.hasOwnProperty('protocols') && Array.isArray(item.protocols)) {
