@@ -38,9 +38,9 @@ const URI_TXT_FILE = path.resolve(ROOT, 'data/uri.txt');
 const PROXY_DIRECTORY = path.resolve(ROOT, 'proxies')
 const README_FILE = path.resolve(ROOT, 'README.md');
 const README_TEMPLATE = `
-## PROXY LIST UPDATE EVERY 6 HOURS
+## PROXY LIST UPDATE EVERY 3 HOURS
 
-Proxy list updated every 6 hours. You can use the following links to get the latest proxy list.
+Proxy list updated every 3 hours. You can use the following links to get the latest proxy list.
 
 [![.github/workflows/periodic.yaml](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml/badge.svg?branch=main)](https://github.com/ArrayIterator/proxy-lists/actions/workflows/periodic.yaml)
 
