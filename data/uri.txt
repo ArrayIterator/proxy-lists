@@ -79,3 +79,7 @@ https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5
 https://api.openproxylist.xyz/socks4.txt
 https://api.openproxylist.xyz/socks5.txt
 https://www.socks-proxy.net/
+https://api.openproxylist.xyz/http.txt
+https://api.openproxylist.xyz/socks4.txt
+https://api.openproxylist.xyz/socks5.txt
+http://inav.chat.ru/ftp/proxy.txt
