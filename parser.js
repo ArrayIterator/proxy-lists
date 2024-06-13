@@ -113,7 +113,7 @@ const parser = {
                         return;
                     }
                     type = type || the_type;
-                    let value = type ? `${type}://${ip}:${port}` : `${ip}:${port}`;
+                    let value = type ? `${type}://${ip}:${port}` : `http://${ip}:${port}`;
                     if (!result.includes(value)) {
                         result.push(value);
                     }
@@ -257,7 +257,7 @@ const parser = {
             }
             let value;
             if (!protocols.length) {
-                value = type ? `${type}://${item.ip}:${item.port}` : `${item.ip}:${item.port}`;
+                value = type ? `${type}://${item.ip}:${item.port}` : `http://${item.ip}:${item.port}`;
                 if (!result.includes(value)) {
                     result.push(value);
                 }
@@ -325,7 +325,7 @@ const parser = {
             if (IPv4_REGEX.test(ip) !== true) {
                 continue;
             }
-            let value = currentType ? `${currentType}://${ip}:${port}` : `${ip}:${port}`;
+            let value = currentType ? `${currentType}://${ip}:${port}` : `http://${ip}:${port}`;
             if (!result.includes(value)) {
                 result.push(value);
             }
