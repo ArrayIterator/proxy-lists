@@ -56,6 +56,7 @@ https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt
 https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks5.txt
 https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks4.txt
 https://raw.githubusercontent.com/AGDDoS/AGProxy/master/proxies/all.txt
+https://raw.githubusercontent.com/themiralay/Proxy-List-World/refs/heads/master/data.txt
 https://proxylist.geonode.com/api/proxy-list?protocols=socks4%2Csocks5&speed=fast&limit=500&page=1&sort_by=lastChecked&sort_type=desc
 https://proxylist.geonode.com/api/proxy-list?protocols=socks4%2Csocks4&speed=fast&limit=500&page=1&sort_by=lastChecked&sort_type=desc
 https://proxylist.geonode.com/api/proxy-list?protocols=socks4%2Chttps&speed=fast&limit=500&page=1&sort_by=lastChecked&sort_type=desc
