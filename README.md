@@ -7,7 +7,7 @@ Proxy list updated every 3 hours. You can use the following links to get the lat
 
 ## LAST UPDATE
 
-Last update `2024-09-29T04:11:27.161Z` with total `94762` proxies.
+Last update `2024-09-29T06:04:46.759Z` with total `93470` proxies.
 
 ALL (protocol://ip:port)
 
